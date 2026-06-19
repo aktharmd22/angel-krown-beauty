@@ -13,16 +13,35 @@ export default function Hero() {
         setUseVideo(!reduce); // looping muted video on all devices (poster image only for reduced-motion)
     }, []);
 
+    // Force inline muted autoplay. React doesn't reliably reflect `muted` to the DOM
+    // property, so iOS/Safari treats the video as unmuted and blocks autoplay (blank hero).
+    useEffect(() => {
+        const v = mediaRef.current;
+        if (!useVideo || !v || v.tagName !== 'VIDEO') return;
+
+        v.muted = true;
+        v.defaultMuted = true;
+        const play = () => { const p = v.play(); if (p) p.catch(() => {}); };
+        play();
+        v.addEventListener('loadeddata', play, { once: true });
+        const onFirstTouch = () => play();
+        document.addEventListener('touchstart', onFirstTouch, { once: true, passive: true });
+        return () => document.removeEventListener('touchstart', onFirstTouch);
+    }, [useVideo]);
+
+    // Scroll parallax — DESKTOP ONLY. Scrubbing a transform on a full-screen <video>
+    // re-rasterizes it every frame, which is far too heavy for mobile GPUs.
     useEffect(() => {
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduce || !mediaRef.current) return;
+        const desktop = window.matchMedia('(min-width: 921px)').matches;
+        if (reduce || !desktop || !mediaRef.current) return;
 
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 mediaRef.current,
                 { scale: 1.08 },
                 {
-                    scale: 1.22,
+                    scale: 1.2,
                     ease: 'none',
                     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
                 },
@@ -48,6 +67,7 @@ export default function Hero() {
                         muted
                         loop
                         playsInline
+                        preload="auto"
                         poster="/assets/img/hero-3.jpg"
                     >
                         <source src="/assets/video/hero.mp4" type="video/mp4" />
