@@ -1,0 +1,161 @@
+@import 'tailwindcss';
+
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.jsx';
+
+@theme {
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ============================================================
+   ANGEL KROWN — Light Luxe · tokens
+   ============================================================ */
+:root {
+    /* brand accents */
+    --wine: #8B1A4F;
+    --wine-deep: #5E0F36;
+    --rose: #F2A6C4;
+    --gold: #C9A24B;
+    --gold-soft: #E7CE8E;
+    --blush: #FCE3D6;
+
+    /* light canvas */
+    --bg: #FFF7EF;
+    --bg-soft: #FBF0E7;
+    --bg-2: #FCE3D6;
+    --paper: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-2: #FFFDFB;
+    --line: rgba(58, 20, 36, .12);
+
+    /* text */
+    --text: #3A1424;
+    --text-dim: rgba(58, 20, 36, .60);
+    --ink: #3A1424;
+
+    /* text on wine accent panels */
+    --on-wine: #F8E9DD;
+    --on-wine-dim: rgba(248, 233, 221, .78);
+
+    --font-display: 'Fraunces', 'Times New Roman', serif;
+    --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+
+    --r: 22px;
+    --r-lg: 34px;
+    --shadow: 0 30px 60px -30px rgba(94, 15, 54, .35);
+    --shadow-soft: 0 18px 40px -28px rgba(94, 15, 54, .26);
+    --maxw: 1240px;
+    --ease: cubic-bezier(.19, 1, .22, 1);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+h1, h2, h3, h4, .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; color: inherit; }
+::selection { background: var(--wine); color: #fff; }
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 30px; }
+
+.eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 11px; letter-spacing: .34em; text-transform: uppercase; font-weight: 600;
+    color: var(--wine); border: 1px solid rgba(139, 26, 79, .3);
+    padding: 8px 16px; border-radius: 999px; background: rgba(255, 255, 255, .6);
+}
+
+.btn {
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer; border: none;
+    font-family: var(--font-body); font-weight: 600; font-size: 14px; letter-spacing: .02em;
+    padding: 16px 30px; border-radius: 999px; transition: .4s var(--ease);
+    background: var(--wine); color: #fff; box-shadow: 0 18px 40px -18px rgba(139, 26, 79, .6);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 26px 50px -18px rgba(139, 26, 79, .75); }
+.btn.ghost { background: transparent; color: var(--wine); border: 1.5px solid rgba(139, 26, 79, .4); box-shadow: none; }
+.btn.ghost:hover { background: rgba(139, 26, 79, .06); border-color: var(--wine); }
+.btn.wa { background: #1faf57; color: #fff; box-shadow: 0 18px 40px -18px rgba(31, 175, 87, .6); }
+.btn.wa:hover { box-shadow: 0 26px 50px -18px rgba(31, 175, 87, .8); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(46px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ============================================================
+   Film grain (subtle on light)
+   ============================================================ */
+.grain {
+    position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+    opacity: .03; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.vignette { position: fixed; inset: 0; z-index: 9997; pointer-events: none; box-shadow: inset 0 0 200px 50px rgba(94, 15, 54, .05); }
+
+/* ============================================================
+   Custom cursor (fine-pointer only)
+   ============================================================ */
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 10000; pointer-events: none; border-radius: 50%; transform: translate(-50%, -50%); }
+.cursor-dot { width: 6px; height: 6px; background: var(--wine); }
+.cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(139, 26, 79, .55); transition: width .28s var(--ease), height .28s var(--ease), background .28s, border-color .28s; }
+.cursor-ring.hover { width: 60px; height: 60px; background: rgba(201, 162, 75, .14); border-color: var(--gold); }
+@media (hover: hover) and (pointer: fine) {
+    body { cursor: none; }
+    a, button, .chip, .member, select, input { cursor: none; }
+}
+@media (hover: none), (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ============================================================
+   Intro loader
+   ============================================================ */
+.loader {
+    position: fixed; inset: 0; z-index: 10001; background: var(--bg);
+    display: grid; place-items: center; transition: transform 1.05s var(--ease), opacity .6s;
+}
+.loader.done { transform: translateY(-100%); }
+.loader-inner { text-align: center; }
+.loader-logo { width: 138px; height: auto; margin: 0 auto; filter: drop-shadow(0 6px 26px rgba(201, 162, 75, .4)); }
+.loader-mark { font-family: var(--font-display); font-size: clamp(34px, 6vw, 64px); color: var(--wine); letter-spacing: .02em; }
+.loader-mark em { font-style: italic; color: var(--gold); }
+.loader-sub { font-size: 10px; letter-spacing: .5em; text-transform: uppercase; color: var(--text-dim); margin-top: 10px; }
+.loader-bar { width: 180px; height: 2px; margin: 26px auto 0; background: rgba(58, 20, 36, .12); overflow: hidden; }
+.loader-bar i { display: block; height: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; animation: load 1.25s var(--ease) forwards; }
+@keyframes load { to { transform: scaleX(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+    .loader { display: none; }
+    .cursor-dot, .cursor-ring { display: none; }
+}
