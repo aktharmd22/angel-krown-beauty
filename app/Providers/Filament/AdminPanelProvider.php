@@ -45,17 +45,19 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::HEAD_END,
                 fn (): string => '<style>'
                     . '@media(min-width:1024px){.fi-main{padding-left:1.75rem!important;padding-right:1.75rem!important;max-width:100%!important}}'
-                    // clear separation between sidebar and content (colors only — keep Filament default alignment)
-                    . '.fi-sidebar{background:#FBF5EF;border-right:1px solid rgba(58,20,36,.1)}'
-                    . '.fi-sidebar .fi-sidebar-header{background:transparent;box-shadow:none;border-bottom:1px solid rgba(58,20,36,.07)}'
+                    // structural (both themes)
                     . '.fi-sidebar-header .fi-logo{margin:0 auto}'
-                    . '.fi-main-ctn{background:#fff}'
-                    . '.fi-sidebar-group-label{font-size:10px;letter-spacing:.1em;color:rgba(58,20,36,.4);font-weight:600}'
                     . '.fi-sidebar-item-button{font-weight:500}'
-                    . '.fi-sidebar-item-button:hover{background:rgba(139,26,79,.06)}'
-                    . '.fi-sidebar-item-icon{color:rgba(58,20,36,.45)}'
-                    . '.fi-sidebar-item-button[aria-current=page]{background:rgba(139,26,79,.1);color:#8B1A4F;font-weight:600}'
-                    . '.fi-sidebar-item-button[aria-current=page] .fi-sidebar-item-icon{color:#8B1A4F}'
+                    . '.fi-sidebar-group-label{font-size:10px;letter-spacing:.1em;font-weight:600}'
+                    // brand colours — LIGHT MODE ONLY (dark mode uses Filament defaults)
+                    . 'html:not(.dark) .fi-sidebar{background:#FBF5EF;border-right:1px solid rgba(58,20,36,.1)}'
+                    . 'html:not(.dark) .fi-sidebar .fi-sidebar-header{background:transparent;box-shadow:none;border-bottom:1px solid rgba(58,20,36,.07)}'
+                    . 'html:not(.dark) .fi-main-ctn{background:#fff}'
+                    . 'html:not(.dark) .fi-sidebar-group-label{color:rgba(58,20,36,.4)}'
+                    . 'html:not(.dark) .fi-sidebar-item-button:hover{background:rgba(139,26,79,.06)}'
+                    . 'html:not(.dark) .fi-sidebar-item-icon{color:rgba(58,20,36,.45)}'
+                    . 'html:not(.dark) .fi-sidebar-item-button[aria-current=page]{background:rgba(139,26,79,.1);color:#8B1A4F;font-weight:600}'
+                    . 'html:not(.dark) .fi-sidebar-item-button[aria-current=page] .fi-sidebar-item-icon{color:#8B1A4F}'
                     // modern animated login page
                     . '.fi-simple-layout{position:relative;overflow:hidden;background:#FFF7EF}'
                     . '.fi-simple-layout::before,.fi-simple-layout::after{content:"";position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none}'
