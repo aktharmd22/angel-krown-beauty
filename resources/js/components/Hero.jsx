@@ -10,26 +10,50 @@ export default function Hero() {
 
     useEffect(() => {
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const desktop = window.matchMedia('(min-width: 921px)').matches;
-        // Video on desktop only. On mobile the heavy file can't autoplay reliably and
-        // its decode causes scroll jank, so phones/tablets get a crisp poster image.
-        setUseVideo(!reduce && desktop);
+        setUseVideo(!reduce); // looping muted video on all devices (poster only for reduced-motion)
     }, []);
 
-    // Force inline muted autoplay. React doesn't reliably reflect `muted` to the DOM
-    // property, so iOS/Safari treats the video as unmuted and blocks autoplay (blank hero).
+    // Bulletproof inline muted autoplay. React doesn't reliably set the `muted` DOM
+    // property (iOS then blocks autoplay), and mobile policies may defer the first play
+    // until a user gesture — so we set muted imperatively and retry on every signal.
     useEffect(() => {
         const v = mediaRef.current;
         if (!useVideo || !v || v.tagName !== 'VIDEO') return;
 
         v.muted = true;
         v.defaultMuted = true;
-        const play = () => { const p = v.play(); if (p) p.catch(() => {}); };
-        play();
-        v.addEventListener('loadeddata', play, { once: true });
-        const onFirstTouch = () => play();
-        document.addEventListener('touchstart', onFirstTouch, { once: true, passive: true });
-        return () => document.removeEventListener('touchstart', onFirstTouch);
+        v.setAttribute('muted', '');
+
+        let cancelled = false;
+        const attempt = () => {
+            if (cancelled || !v.paused) return;
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {});
+        };
+
+        attempt();
+        v.addEventListener('canplay', attempt);
+        v.addEventListener('loadeddata', attempt);
+        document.addEventListener('visibilitychange', attempt);
+        // strict mobile policies: the first touch / scroll unlocks playback
+        window.addEventListener('touchstart', attempt, { passive: true });
+        window.addEventListener('scroll', attempt, { passive: true });
+
+        const io = new IntersectionObserver(
+            (entries) => entries.forEach((e) => e.isIntersecting && attempt()),
+            { threshold: 0.1 },
+        );
+        io.observe(v);
+
+        return () => {
+            cancelled = true;
+            v.removeEventListener('canplay', attempt);
+            v.removeEventListener('loadeddata', attempt);
+            document.removeEventListener('visibilitychange', attempt);
+            window.removeEventListener('touchstart', attempt);
+            window.removeEventListener('scroll', attempt);
+            io.disconnect();
+        };
     }, [useVideo]);
 
     // Scroll parallax — DESKTOP ONLY. Scrubbing a transform on a full-screen <video>
