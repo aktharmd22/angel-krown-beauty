@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CcJCEwD_.css",
+    "file": "assets/app-BezpeAvu.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -9,7 +9,7 @@
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-CCF9PbA0.js",
+    "file": "assets/Home-DlNf1CI2.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
@@ -17,11 +17,11 @@
       "resources/js/app.jsx"
     ],
     "css": [
-      "assets/app-CcJCEwD_.css"
+      "assets/app-BezpeAvu.css"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-aTmQsj_i.js",
+    "file": "assets/app-B87CLmSn.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
@@ -29,8 +29,8 @@
       "resources/js/Pages/Home.jsx"
     ],
     "css": [
-      "assets/app-Bnf8MBv2.css",
-      "assets/app-CcJCEwD_.css"
+      "assets/app-Cy_8niH-.css",
+      "assets/app-BezpeAvu.css"
     ]
   }
 }

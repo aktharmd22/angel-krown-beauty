@@ -15,7 +15,7 @@
 
 /* ---------- Header: top contact bar + centered-logo nav ---------- */
 .site-head { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background .5s var(--ease), box-shadow .5s var(--ease); }
-.site-head.solid { background: rgba(255, 247, 239, .97); backdrop-filter: blur(14px); box-shadow: 0 10px 30px -16px rgba(94, 15, 54, .2); }
+.site-head.solid { background: rgba(255, 247, 239, .985); box-shadow: 0 10px 30px -16px rgba(94, 15, 54, .2); }
 
 .topbar { border-bottom: 1px solid var(--line); }
 .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 40px; font-size: 12px; color: var(--text-dim); }
@@ -52,7 +52,7 @@
 .menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; grid-column: 3; justify-self: end; }
 .menu-btn span { width: 24px; height: 1.5px; background: var(--text); transition: .3s; }
 
-.mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: rgba(255, 247, 239, .98); backdrop-filter: blur(14px); display: none; flex-direction: column; padding: 18px 30px 26px; box-shadow: var(--shadow); border-bottom: 1px solid var(--line); }
+.mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: rgba(255, 247, 239, .99); display: none; flex-direction: column; padding: 18px 30px 26px; box-shadow: var(--shadow); border-bottom: 1px solid var(--line); }
 .mobile-menu.open { display: flex; }
 .mobile-menu a:not(.btn) { color: var(--text); font-weight: 500; padding: 14px 0; border-bottom: 1px solid var(--line); text-transform: uppercase; font-size: 13px; letter-spacing: .05em; }
 .mobile-menu .btn { margin-top: 16px; justify-content: center; }
@@ -60,7 +60,7 @@
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100svh; display: grid; place-items: center; text-align: center; overflow: hidden; background: var(--bg); padding: clamp(150px, 16vh, 200px) 0 90px; }
 .hero-media { position: absolute; inset: 0; z-index: 1; background: #1a0710; }
-.hero-media img, .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 1; filter: brightness(.96) saturate(1.05); transform: scale(1.08); will-change: transform; }
+.hero-media img, .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 1; transform: scale(1.08); will-change: transform; }
 .hero-scrim { position: absolute; inset: 0; background:
     linear-gradient(to bottom, rgba(20, 3, 9, .58) 0%, rgba(20, 3, 9, .32) 32%, rgba(20, 3, 9, .46) 66%, rgba(20, 3, 9, .82) 100%),
     radial-gradient(80% 64% at 50% 50%, rgba(20, 3, 9, .1), rgba(20, 3, 9, .5) 100%); }
@@ -107,7 +107,7 @@
 .stat span { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
 .about-photo { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 5; border: 1px solid var(--line); box-shadow: var(--shadow); }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.86) contrast(1.04); }
-.about-photo .badge { position: absolute; left: 16px; right: 16px; bottom: 16px; background: rgba(255, 255, 255, .85); backdrop-filter: blur(8px); border: 1px solid var(--line); color: var(--text); padding: 14px 20px; border-radius: 999px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; box-shadow: var(--shadow-soft); }
+.about-photo .badge { position: absolute; left: 16px; right: 16px; bottom: 16px; background: rgba(255, 255, 255, .94); border: 1px solid var(--line); color: var(--text); padding: 14px 20px; border-radius: 999px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; box-shadow: var(--shadow-soft); }
 .about-photo .badge a { color: var(--wine); font-weight: 600; }
 
 /* ---------- Services ---------- */
@@ -175,7 +175,7 @@
 .home-cta svg path { fill: var(--wine-deep); }
 
 /* ---------- Booking ---------- */
-.book-card { max-width: 820px; margin: 0 auto; background: rgba(255, 255, 255, .82); backdrop-filter: blur(14px); border: 1px solid rgba(201, 162, 75, .25); border-radius: 28px; overflow: hidden; box-shadow: 0 40px 90px -45px rgba(94, 15, 54, .4); }
+.book-card { max-width: 820px; margin: 0 auto; background: rgba(255, 255, 255, .95); border: 1px solid rgba(201, 162, 75, .25); border-radius: 28px; overflow: hidden; box-shadow: 0 40px 90px -45px rgba(94, 15, 54, .4); }
 .book-form { padding: clamp(32px, 5vw, 56px); }
 .book-form h2 { font-size: 32px; color: var(--text); margin-bottom: 6px; font-weight: 400; }
 .book-form .sub { color: var(--text-dim); font-size: 14px; margin-bottom: 30px; }
@@ -318,7 +318,7 @@ footer { background: linear-gradient(var(--bg-soft), var(--blush)); color: var(-
 .hero .hero-book { background: var(--wine); color: #fff; box-shadow: 0 18px 44px -16px rgba(139, 26, 79, .9); border: 1px solid rgba(255, 255, 255, .12); }
 .hero .hero-book:hover { background: var(--wine-deep); transform: translateY(-3px); }
 .hero .hero-book svg path { fill: var(--gold-soft); }
-.hero .hero-ghost { color: #fff; border: 1.5px solid rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .08); backdrop-filter: blur(6px); }
+.hero .hero-ghost { color: #fff; border: 1.5px solid rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .16); }
 .hero .hero-ghost:hover { background: rgba(255, 255, 255, .2); border-color: #fff; }
 
 /* ---------- About — modern UI + infinite/interactive animation ---------- */
@@ -326,7 +326,7 @@ footer { background: linear-gradient(var(--bg-soft), var(--blush)); color: var(-
 .about-grid { position: relative; z-index: 1; }
 
 /* drifting ambient orbs (infinite) */
-.about-orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .5; z-index: 0; pointer-events: none; }
+.about-orb { position: absolute; border-radius: 50%; filter: blur(46px); opacity: .42; z-index: 0; pointer-events: none; }
 .orb-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(242, 166, 196, .55), transparent 70%); top: -110px; left: -120px; animation: drift1 19s ease-in-out infinite; }
 .orb-2 { width: 340px; height: 340px; background: radial-gradient(circle, rgba(201, 162, 75, .45), transparent 70%); bottom: -90px; left: 40%; animation: drift2 24s ease-in-out infinite; }
 @keyframes drift1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(50px, 36px) scale(1.08); } }
@@ -340,29 +340,29 @@ footer { background: linear-gradient(var(--bg-soft), var(--blush)); color: var(-
 @keyframes kenburns { from { transform: scale(1.03) translate(0, 0); } to { transform: scale(1.13) translate(-1.5%, -1.5%); } }
 
 /* modern glassy stat cards */
-.stats .stat { position: relative; background: rgba(255, 255, 255, .68); backdrop-filter: blur(8px); border: 1px solid rgba(201, 162, 75, .22); border-radius: 18px; overflow: hidden; transition: transform .35s var(--ease), box-shadow .35s, border-color .35s; }
+.stats .stat { position: relative; background: rgba(255, 255, 255, .93); border: 1px solid rgba(201, 162, 75, .22); border-radius: 18px; overflow: hidden; transition: transform .35s var(--ease), box-shadow .35s, border-color .35s; }
 .stats .stat::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--rose)); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
 .stats .stat:hover { transform: translateY(-7px); border-color: rgba(201, 162, 75, .55); box-shadow: 0 26px 48px -28px rgba(94, 15, 54, .45); }
 .stats .stat:hover::before { transform: scaleX(1); }
 .stats .stat b { background: linear-gradient(120deg, var(--wine), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 /* modern mission card */
-.about-text .mission { background: rgba(255, 255, 255, .64); backdrop-filter: blur(8px); border: 1px solid var(--line); border-left: 3px solid var(--gold); box-shadow: 0 22px 46px -30px rgba(94, 15, 54, .3); }
+.about-text .mission { background: rgba(255, 255, 255, .92); border: 1px solid var(--line); border-left: 3px solid var(--gold); box-shadow: 0 22px 46px -30px rgba(94, 15, 54, .3); }
 
 /* ---------- Animated aurora background (whole page) ---------- */
 .aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: var(--bg); }
-.aurora-blob { position: absolute; border-radius: 50%; filter: blur(90px); will-change: transform; }
+.aurora-blob { position: absolute; border-radius: 50%; filter: blur(54px); will-change: transform; }
 .ab1 { width: 48vw; height: 48vw; background: radial-gradient(circle, rgba(242, 166, 196, .55), transparent 70%); top: -12vw; left: -10vw; animation: aurora1 26s ease-in-out infinite; }
 .ab2 { width: 42vw; height: 42vw; background: radial-gradient(circle, rgba(201, 162, 75, .42), transparent 70%); top: 38vh; right: -12vw; animation: aurora2 32s ease-in-out infinite; }
 .ab3 { width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(252, 227, 214, .7), transparent 70%); bottom: -14vw; left: 28vw; animation: aurora3 29s ease-in-out infinite; }
-.ab4 { width: 32vw; height: 32vw; background: radial-gradient(circle, rgba(139, 26, 79, .12), transparent 70%); top: 12vh; left: 42vw; animation: aurora1 36s ease-in-out infinite reverse; }
+.ab4 { display: none; }
 @keyframes aurora1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(7vw, 6vh) scale(1.1); } }
 @keyframes aurora2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-6vw, -5vh) scale(1.08); } }
 @keyframes aurora3 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, -7vh) scale(1.12); } }
 
 /* ---------- Services — modern glass cards ---------- */
 .svc-grid { perspective: 1500px; }
-.svc { position: relative; background: rgba(255, 255, 255, .8); backdrop-filter: blur(12px); border: 1px solid rgba(201, 162, 75, .25); border-radius: 26px; padding: 32px 30px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(94, 15, 54, .35); transition: box-shadow .45s, border-color .45s; transform-style: preserve-3d; }
+.svc { position: relative; background: rgba(255, 255, 255, .94); border: 1px solid rgba(201, 162, 75, .25); border-radius: 26px; padding: 32px 30px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(94, 15, 54, .35); transition: box-shadow .45s, border-color .45s; transform-style: preserve-3d; }
 .svc:hover { border-color: rgba(201, 162, 75, .6); box-shadow: 0 46px 84px -42px rgba(94, 15, 54, .5); }
 .svc::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--wine), var(--gold), var(--rose)); transform: scaleX(0); transform-origin: left; transition: transform .55s var(--ease); }
 .svc:hover::before { transform: scaleX(1); }
