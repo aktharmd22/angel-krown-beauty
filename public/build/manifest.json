@@ -9,7 +9,7 @@
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-DHKmuBFj.js",
+    "file": "assets/Home-BG1d9n3V.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
@@ -21,7 +21,7 @@
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-483ivecY.js",
+    "file": "assets/app-_etgm2OL.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
@@ -29,7 +29,7 @@
       "resources/js/Pages/Home.jsx"
     ],
     "css": [
-      "assets/app-Ckp5Ti6T.css",
+      "assets/app-DPqDVlCA.css",
       "assets/app-BezpeAvu.css"
     ]
   }

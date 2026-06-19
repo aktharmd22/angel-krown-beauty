@@ -5,20 +5,23 @@ import { WhatsAppIcon } from './icons';
 
 export default function Hero() {
     const [useVideo, setUseVideo] = useState(false);
-    const mediaRef = useRef(null);
+    const [playing, setPlaying] = useState(false);
+    const videoRef = useRef(null);
+    const fallbackRef = useRef(null);
     const innerRef = useRef(null);
 
     useEffect(() => {
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setUseVideo(!reduce); // looping muted video on all devices (poster only for reduced-motion)
+        setUseVideo(!reduce); // try the video everywhere; the animated poster covers blocked autoplay
     }, []);
 
     // Bulletproof inline muted autoplay. React doesn't reliably set the `muted` DOM
-    // property (iOS then blocks autoplay), and mobile policies may defer the first play
-    // until a user gesture — so we set muted imperatively and retry on every signal.
+    // property (iOS then blocks autoplay), and strict mobile policies defer the first
+    // play until a gesture — so we set muted imperatively and retry on every signal.
+    // If it's still blocked (Low Power / Data Saver), the Ken-Burns poster shows instead.
     useEffect(() => {
-        const v = mediaRef.current;
-        if (!useVideo || !v || v.tagName !== 'VIDEO') return;
+        const v = videoRef.current;
+        if (!useVideo || !v) return;
 
         v.muted = true;
         v.defaultMuted = true;
@@ -35,7 +38,6 @@ export default function Hero() {
         v.addEventListener('canplay', attempt);
         v.addEventListener('loadeddata', attempt);
         document.addEventListener('visibilitychange', attempt);
-        // strict mobile policies: the first touch / scroll unlocks playback
         window.addEventListener('touchstart', attempt, { passive: true });
         window.addEventListener('scroll', attempt, { passive: true });
 
@@ -56,16 +58,17 @@ export default function Hero() {
         };
     }, [useVideo]);
 
-    // Scroll parallax — DESKTOP ONLY. Scrubbing a transform on a full-screen <video>
+    // Scroll parallax — DESKTOP ONLY. Scrubbing a transform on a full-screen video
     // re-rasterizes it every frame, which is far too heavy for mobile GPUs.
     useEffect(() => {
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const desktop = window.matchMedia('(min-width: 921px)').matches;
-        if (reduce || !desktop || !mediaRef.current) return;
+        const target = videoRef.current || fallbackRef.current;
+        if (reduce || !desktop || !target) return;
 
         const ctx = gsap.context(() => {
             gsap.fromTo(
-                mediaRef.current,
+                target,
                 { scale: 1.08 },
                 {
                     scale: 1.2,
@@ -86,22 +89,24 @@ export default function Hero() {
     return (
         <header className="hero" id="top">
             <div className="hero-media" aria-hidden="true">
-                {useVideo ? (
+                {/* Always-on animated poster — guarantees motion even if video autoplay is blocked */}
+                <img ref={fallbackRef} className="hero-fallback" src="/assets/img/hero-3.jpg" alt="" loading="eager" />
+
+                {useVideo && (
                     <video
-                        ref={mediaRef}
-                        className="hero-video"
+                        ref={videoRef}
+                        className={`hero-video${playing ? ' playing' : ''}`}
                         autoPlay
                         muted
                         loop
                         playsInline
                         preload="auto"
-                        poster="/assets/img/hero-3.jpg"
+                        onPlaying={() => setPlaying(true)}
                     >
                         <source src="/assets/video/hero.mp4" type="video/mp4" />
                     </video>
-                ) : (
-                    <img ref={mediaRef} src="/assets/img/hero-3.jpg" alt="" loading="eager" />
                 )}
+
                 <div className="hero-scrim" />
             </div>
 
