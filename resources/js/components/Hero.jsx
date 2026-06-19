@@ -10,7 +10,10 @@ export default function Hero() {
 
     useEffect(() => {
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setUseVideo(!reduce); // looping muted video on all devices (poster image only for reduced-motion)
+        const desktop = window.matchMedia('(min-width: 921px)').matches;
+        // Video on desktop only. On mobile the heavy file can't autoplay reliably and
+        // its decode causes scroll jank, so phones/tablets get a crisp poster image.
+        setUseVideo(!reduce && desktop);
     }, []);
 
     // Force inline muted autoplay. React doesn't reliably reflect `muted` to the DOM

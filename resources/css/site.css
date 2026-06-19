@@ -214,6 +214,14 @@ a.ci-item { cursor: pointer; }
 /* ---------- Responsive refinements (tablet + mobile) ---------- */
 html, body { overflow-x: hidden; max-width: 100%; }
 
+/* Mobile perf: stop continuous repaints of blurred layers for smooth scrolling */
+@media (max-width: 920px) {
+    .aurora-blob, .about-orb { animation: none !important; will-change: auto; }
+    .ab3 { display: none; }
+    .about-photo img { animation: none; }
+    .hero-media img, .hero-video { will-change: auto; }
+}
+
 @media (max-width: 920px) {
     .contact-grid { gap: 36px; }
     .map, .map iframe { min-height: 380px; }
