@@ -5,6 +5,7 @@ import { useReveal } from '../hooks/useReveal';
 
 import Loader from '../components/Loader';
 import Cursor from '../components/Cursor';
+import Home3Background from '../components/Home3Background';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
@@ -30,17 +31,10 @@ export default function Home3() {
 
             <Loader />
             <Cursor />
-            <div className="aurora" aria-hidden="true">
-                <span className="aurora-blob ab1" />
-                <span className="aurora-blob ab2" />
-                <span className="aurora-blob ab3" />
-                <span className="aurora-blob ab4" />
-            </div>
-            <div className="grain" aria-hidden="true" />
-            <div className="vignette" aria-hidden="true" />
+            <Home3Background />
 
             <Nav />
-            <main>
+            <main className="home3">
                 <Hero />
                 <Marquee />
                 <About />

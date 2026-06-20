@@ -482,3 +482,13 @@ footer { background: linear-gradient(var(--bg-soft), var(--blush)); color: var(-
     .cine-stage { height: 300vh; }
     .cine-chapter h1, .cine-chapter h2 { font-size: clamp(40px, 12vw, 64px); }
 }
+
+/* ============================================================
+   /home3 — light-pink scroll-scrubbed background (no ambient animation)
+   ============================================================ */
+.home3-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #FDEFF5; }
+.home3-bg video { width: 100%; height: 100%; object-fit: cover; }
+/* no aurora / orbs on home3 — the scrubbed video is the only background motion */
+.home3 .about-orb { display: none; }
+/* lighten translucent section panels so the pink background reads through */
+.home3 .services, .home3 .specialists, .home3 .booking { background: rgba(255, 248, 251, .4); }

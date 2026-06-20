@@ -1,14 +1,14 @@
 {
-  "_Hero-rzC1BBQf.js": {
-    "file": "assets/Hero-rzC1BBQf.js",
+  "_Hero-CalrbL_r.js": {
+    "file": "assets/Hero-CalrbL_r.js",
     "name": "Hero",
     "imports": [
       "resources/js/app.jsx",
-      "_WhatsAppFab-Bl4w1g99.js"
+      "_WhatsAppFab-tm0K7uI-.js"
     ]
   },
-  "_WhatsAppFab-Bl4w1g99.js": {
-    "file": "assets/WhatsAppFab-Bl4w1g99.js",
+  "_WhatsAppFab-tm0K7uI-.js": {
+    "file": "assets/WhatsAppFab-tm0K7uI-.js",
     "name": "WhatsAppFab",
     "imports": [
       "resources/js/app.jsx"
@@ -24,48 +24,48 @@
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-DRALtxM6.js",
+    "file": "assets/Home-BTdtSYaW.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_WhatsAppFab-Bl4w1g99.js",
-      "_Hero-rzC1BBQf.js"
+      "_WhatsAppFab-tm0K7uI-.js",
+      "_Hero-CalrbL_r.js"
     ],
     "css": [
       "assets/app-ByDrxwqP.css"
     ]
   },
   "resources/js/Pages/Home2.jsx": {
-    "file": "assets/Home2-CHpC3G2T.js",
+    "file": "assets/Home2-Cx2l_cwx.js",
     "name": "Home2",
     "src": "resources/js/Pages/Home2.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_WhatsAppFab-Bl4w1g99.js"
+      "_WhatsAppFab-tm0K7uI-.js"
     ],
     "css": [
       "assets/app-ByDrxwqP.css"
     ]
   },
   "resources/js/Pages/Home3.jsx": {
-    "file": "assets/Home3-DAAlvSpX.js",
+    "file": "assets/Home3-DM-nEOpl.js",
     "name": "Home3",
     "src": "resources/js/Pages/Home3.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_WhatsAppFab-Bl4w1g99.js",
-      "_Hero-rzC1BBQf.js"
+      "_WhatsAppFab-tm0K7uI-.js",
+      "_Hero-CalrbL_r.js"
     ],
     "css": [
       "assets/app-ByDrxwqP.css"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-DarMs9pv.js",
+    "file": "assets/app-C0V8fc04.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
@@ -75,7 +75,7 @@
       "resources/js/Pages/Home3.jsx"
     ],
     "css": [
-      "assets/app-DpJC2wtN.css",
+      "assets/app-GeCUXxwM.css",
       "assets/app-ByDrxwqP.css"
     ]
   }
