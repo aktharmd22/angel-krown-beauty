@@ -1,13 +1,21 @@
 {
-  "_WhatsAppFab-BRfrXsHH.js": {
-    "file": "assets/WhatsAppFab-BRfrXsHH.js",
+  "_Hero-rzC1BBQf.js": {
+    "file": "assets/Hero-rzC1BBQf.js",
+    "name": "Hero",
+    "imports": [
+      "resources/js/app.jsx",
+      "_WhatsAppFab-Bl4w1g99.js"
+    ]
+  },
+  "_WhatsAppFab-Bl4w1g99.js": {
+    "file": "assets/WhatsAppFab-Bl4w1g99.js",
     "name": "WhatsAppFab",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-msMVgen9.css",
+    "file": "assets/app-ByDrxwqP.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -16,43 +24,59 @@
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-Ojqzqh_c.js",
+    "file": "assets/Home-DRALtxM6.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_WhatsAppFab-BRfrXsHH.js"
+      "_WhatsAppFab-Bl4w1g99.js",
+      "_Hero-rzC1BBQf.js"
     ],
     "css": [
-      "assets/app-msMVgen9.css"
+      "assets/app-ByDrxwqP.css"
     ]
   },
   "resources/js/Pages/Home2.jsx": {
-    "file": "assets/Home2-ft8nt5bE.js",
+    "file": "assets/Home2-CHpC3G2T.js",
     "name": "Home2",
     "src": "resources/js/Pages/Home2.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_WhatsAppFab-BRfrXsHH.js"
+      "_WhatsAppFab-Bl4w1g99.js"
     ],
     "css": [
-      "assets/app-msMVgen9.css"
+      "assets/app-ByDrxwqP.css"
+    ]
+  },
+  "resources/js/Pages/Home3.jsx": {
+    "file": "assets/Home3-DAAlvSpX.js",
+    "name": "Home3",
+    "src": "resources/js/Pages/Home3.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_WhatsAppFab-Bl4w1g99.js",
+      "_Hero-rzC1BBQf.js"
+    ],
+    "css": [
+      "assets/app-ByDrxwqP.css"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-BnjU-RMQ.js",
+    "file": "assets/app-DarMs9pv.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "dynamicImports": [
       "resources/js/Pages/Home.jsx",
-      "resources/js/Pages/Home2.jsx"
+      "resources/js/Pages/Home2.jsx",
+      "resources/js/Pages/Home3.jsx"
     ],
     "css": [
       "assets/app-DpJC2wtN.css",
-      "assets/app-msMVgen9.css"
+      "assets/app-ByDrxwqP.css"
     ]
   }
 }

@@ -13,6 +13,11 @@ Route::get('/home2', function () {
     return Inertia::render('Home2');
 })->name('home2');
 
+// Duplicate of the original home
+Route::get('/home3', function () {
+    return Inertia::render('Home3');
+})->name('home3');
+
 // Invoice PDF (auth checked inside the controller)
 Route::get('/admin/invoices/{invoice}/pdf', [InvoiceController::class, 'pdf'])
     ->name('invoices.pdf');
