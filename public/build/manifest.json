@@ -1,6 +1,13 @@
 {
+  "_WhatsAppFab-BRfrXsHH.js": {
+    "file": "assets/WhatsAppFab-BRfrXsHH.js",
+    "name": "WhatsAppFab",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
   "resources/css/app.css": {
-    "file": "assets/app-BezpeAvu.css",
+    "file": "assets/app-msMVgen9.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -9,28 +16,43 @@
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-BG1d9n3V.js",
+    "file": "assets/Home-Ojqzqh_c.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.jsx"
+      "resources/js/app.jsx",
+      "_WhatsAppFab-BRfrXsHH.js"
     ],
     "css": [
-      "assets/app-BezpeAvu.css"
+      "assets/app-msMVgen9.css"
+    ]
+  },
+  "resources/js/Pages/Home2.jsx": {
+    "file": "assets/Home2-ft8nt5bE.js",
+    "name": "Home2",
+    "src": "resources/js/Pages/Home2.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_WhatsAppFab-BRfrXsHH.js"
+    ],
+    "css": [
+      "assets/app-msMVgen9.css"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-_etgm2OL.js",
+    "file": "assets/app-BnjU-RMQ.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "dynamicImports": [
-      "resources/js/Pages/Home.jsx"
+      "resources/js/Pages/Home.jsx",
+      "resources/js/Pages/Home2.jsx"
     ],
     "css": [
-      "assets/app-DPqDVlCA.css",
-      "assets/app-BezpeAvu.css"
+      "assets/app-DpJC2wtN.css",
+      "assets/app-msMVgen9.css"
     ]
   }
 }

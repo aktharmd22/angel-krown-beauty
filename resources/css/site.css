@@ -438,3 +438,47 @@ footer { background: linear-gradient(var(--bg-soft), var(--blush)); color: var(-
 .site-head.solid .topbar .soc { border-color: var(--line); color: var(--text-dim); }
 .site-head.solid .nav-side a:not(.btn), .site-head.solid .nav-logo { color: var(--text); }
 .site-head.solid .menu-btn span { background: var(--text); }
+
+/* ============================================================
+   /home2 — Cinematic scroll-scrubbed video hero
+   ============================================================ */
+.cine-stage { position: relative; height: 440vh; background: #120309; z-index: 1; }
+.cine-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.cine-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center; z-index: 0; transform: translateZ(0);
+}
+.cine-scrim {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+        linear-gradient(to bottom, rgba(18, 3, 9, .55) 0%, rgba(18, 3, 9, .26) 34%, rgba(18, 3, 9, .5) 72%, rgba(18, 3, 9, .92) 100%),
+        radial-gradient(76% 62% at 50% 46%, rgba(18, 3, 9, .05), rgba(18, 3, 9, .62) 100%);
+}
+.cine-chapters { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; text-align: center; padding: 0 24px; pointer-events: none; }
+.cine-chapter { position: absolute; max-width: 940px; opacity: 0; transition: opacity .2s ease; pointer-events: auto; }
+.cine-eyebrow {
+    display: inline-block; margin-bottom: 20px; font-size: 11px; letter-spacing: .42em;
+    text-transform: uppercase; color: var(--gold-soft);
+    border: 1px solid rgba(231, 206, 142, .4); background: rgba(255, 255, 255, .06);
+    padding: 9px 22px; border-radius: 999px;
+}
+.cine-chapter h1, .cine-chapter h2 {
+    font-family: 'Cormorant Garamond', 'Fraunces', serif; font-weight: 500; line-height: 1.01;
+    font-size: clamp(46px, 8.6vw, 132px); color: #FCF5EC; letter-spacing: 0;
+    text-shadow: 0 6px 54px rgba(0, 0, 0, .6);
+}
+.cine-chapter em {
+    font-style: italic;
+    background: linear-gradient(100deg, var(--gold-soft), var(--gold));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cine-chapter p { margin-top: 24px; font-size: clamp(15px, 2vw, 19px); color: rgba(255, 245, 238, .82); }
+.cine-chapter .btn { margin-top: 34px; }
+.cine-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255, 255, 255, .12); z-index: 4; }
+.cine-progress i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); transform: scaleX(0); transform-origin: left; }
+.cine-stage .scroll-hint { z-index: 4; color: rgba(255, 245, 238, .7); }
+
+@media (max-width: 920px) {
+    .cine-stage { height: 300vh; }
+    .cine-chapter h1, .cine-chapter h2 { font-size: clamp(40px, 12vw, 64px); }
+}
